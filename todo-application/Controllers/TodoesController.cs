@@ -147,6 +147,18 @@ namespace todo_application.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public IActionResult Html1()
+        {
+
+            return View("Html1");
+        }
+
+        public IActionResult Html2()
+        {
+
+            return View("Html2");
+        }
+
         private bool TodoExists(int id)
         {
             return _context.Todoes.Any(e => e.Id == id);
