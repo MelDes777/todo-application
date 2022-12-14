@@ -10,13 +10,12 @@
     <a asp-action="Create">Create New</a>
 </p>
 
-<button onclick="myFunction()">Show/Hide completed todoes</button>
-<div id="myDIV">
-</div>
+<button onclick="myFunction1">Show/Hide completed todoes</button>
+
+
 
 <button onclick="myFunction2()">Show/Hide ToDoes that are due today</button>
-<div id="myDIV2">
-</div>
+
 
 <table class="table">
     <thead>
@@ -55,7 +54,12 @@
                     @Html.DisplayFor(modelItem => item.DueDate)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IsCompleted)
+                    <div class="myClass">
+                    @if (item.IsCompleted == true)
+                    {
+                        @Html.DisplayFor(modelItem => item.IsCompleted)
+                    }
+                    </div>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.IsStarted)
@@ -64,29 +68,21 @@
                     @Html.DisplayFor(modelItem => item.IsProgressed)
                 </td>
                 <td>
+                    <a asp-action="Copy" asp-route-id="@item.Id">Copy</a> |
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>
+            
         }
     </tbody>
 </table>
 
+
 <script>
     function myFunction() {
         var x = document.getElementsByClassName("myClass");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-</script>
-
-<script>
-    function myFunction2() {
-        var x = document.getElementById("myDIV2");
         if (x.style.display === "none") {
             x.style.display = "block";
         } else {

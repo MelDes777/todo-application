@@ -1,0 +1,59 @@
+﻿@model todo_application.Models.Todo
+
+@{
+    ViewData["Title"] = "Copy";
+}
+
+<h1>Copy</h1>
+
+<h4>Todo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Copy">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Description" class="control-label" ></label>
+                <label asp-for="Description" class="form-control"/>
+                @Html.DisplayFor(model => model.Description)
+            </div>
+            <div class="form-group">
+                <label asp-for="DateCreated" class="control-label"></label>
+                <label asp-for="DateCreated" class="form-control" />
+                @Html.DisplayFor(model => model.DateCreated)
+            </div>
+            <div class="form-group">
+                <label asp-for="DueDate" class="control-label"></label>
+                <label asp-for="DueDate" class="form-control" />
+                @Html.DisplayFor(model => model.DueDate)
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    @Html.DisplayFor(model => model.IsCompleted) @Html.DisplayNameFor(model => model.IsCompleted)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    @Html.DisplayFor(model => model.IsStarted) @Html.DisplayNameFor(model => model.IsStarted)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    @Html.DisplayFor(model => model.IsProgressed) @Html.DisplayNameFor(model => model.IsProgressed)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Copy" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
