@@ -54,7 +54,7 @@ namespace todo_application
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Todoes}/{action=Index}/{id?}");
+                    pattern: "{controller=Todoes}/{action=Main}/{id?}");
             });
         }
     }

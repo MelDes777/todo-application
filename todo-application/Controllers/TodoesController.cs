@@ -25,6 +25,12 @@ namespace todo_application.Controllers
             return View(await _context.Todoes.ToListAsync());
         }
 
+        // GET: Todoes/Main
+        public IActionResult Main()
+        {
+            return View("Main");
+        }
+
         // GET: Todoes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -159,6 +165,12 @@ namespace todo_application.Controllers
             return View("Html2");
         }
 
+        public IActionResult Html3()
+        {
+
+            return View("Html3");
+        }
+
         private bool TodoExists(int id)
         {
             return _context.Todoes.Any(e => e.Id == id);
@@ -185,33 +197,16 @@ namespace todo_application.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Copy(int id,
+        public async Task<IActionResult> Copy(
             [Bind("Id,Description,DateCreated,DueDate,IsCompleted,IsStarted,IsProgressed")] Todo todo)
         {
-            if (id != todo.Id)
-            {
-                return NotFound();
-            }
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Add(todo);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!TodoExists(todo.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                _context.Add(todo);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+
             }
             return View(todo);
         }
