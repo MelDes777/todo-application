@@ -4,6 +4,6 @@
 // Write your JavaScript code.
 
 
-$(function myFunction1() {
-    var completed = $('.myClass').hide(3000).show(3000);
-});
+//$(function myFunction1() {
+//    var completed = $('.myClass').hide(3000).show(3000);
+//});

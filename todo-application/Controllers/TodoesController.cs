@@ -171,6 +171,24 @@ namespace todo_application.Controllers
             return View("Html3");
         }
 
+        public async Task<IActionResult> Completed()
+        {
+
+            return View(await _context.Todoes.ToListAsync());
+        }
+
+        public async Task<IActionResult> Today()
+        {
+
+            return View(await _context.Todoes.ToListAsync());
+        }
+
+        public async Task<IActionResult> Planned()
+        {
+
+            return View(await _context.Todoes.ToListAsync());
+        }
+
         private bool TodoExists(int id)
         {
             return _context.Todoes.Any(e => e.Id == id);

@@ -10,7 +10,7 @@
     <a asp-action="Create">Create New</a>
 </p>
 
-<button onclick="myFunction1">Show/Hide completed todoes</button>
+<button onclick="myFunction">Show/Hide completed todoes</button>
 
 
 <table class="table">
@@ -50,11 +50,8 @@
                     @Html.DisplayFor(modelItem => item.DueDate)
                 </td>
                 <td>
-                    <div class="myClass">
-                    @if (item.IsCompleted == true)
-                    {
+                    <div id="myId">
                         @Html.DisplayFor(modelItem => item.IsCompleted)
-                    }
                     </div>
                 </td>
                 <td>
@@ -78,7 +75,7 @@
 
 <script>
     function myFunction() {
-        var x = document.getElementsByClassName("myClass");
+        var x = document.getElementById("myId");
         if (x.style.display === "none") {
             x.style.display = "block";
         } else {

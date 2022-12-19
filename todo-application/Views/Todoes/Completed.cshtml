@@ -1,0 +1,62 @@
+﻿@model IEnumerable<todo_application.Models.Todo>
+
+@{
+    ViewData["Title"] = "Completed";
+}
+
+<h1>Todo completed list</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateCreated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsCompleted)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (item.IsCompleted == true)
+            {
+                <tr>
+                    <td>
+                        <div class="text-bg-success p-3">
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="text-bg-success p-3">
+
+                            @Html.DisplayFor(modelItem => item.DateCreated)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="text-bg-success p-3">
+
+                            @Html.DisplayFor(modelItem => item.DueDate)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="text-bg-success p-3">
+
+                            @Html.DisplayFor(modelItem => item.IsCompleted)
+                        </div>
+                    </td>
+                </tr>
+            }
+            
+        }
+    </tbody>
+</table>
+

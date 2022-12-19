@@ -1,0 +1,67 @@
+﻿@model IEnumerable<todo_application.Models.Todo>
+
+@{
+    ViewData["Title"] = "Planned";
+}
+
+<h1>Planned todoes</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateCreated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsStarted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsProgressed)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (item.DueDate.Date != DateTime.Today.Date)
+            {
+                <tr>
+                    <td>
+                        <div class="text-bg-info p-3">
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="text-bg-info p-3">
+                            @Html.DisplayFor(modelItem => item.DateCreated)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="text-bg-info p-3">
+                            @Html.DisplayFor(modelItem => item.DueDate)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="text-bg-info p-3">
+                        @Html.DisplayFor(modelItem => item.IsStarted)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="text-bg-info p-3">
+                        @Html.DisplayFor(modelItem => item.IsProgressed)
+                        </div>
+                    </td>
+                </tr>
+            }
+            
+        }
+    </tbody>
+</table>
+
