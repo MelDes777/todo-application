@@ -30,7 +30,7 @@
     <tbody>
         @foreach (var item in Model)
         {
-            @if (item.DueDate.Date != DateTime.Today.Date)
+            @if (item.DueDate.Date != DateTime.Today.Date && item.IsCompleted != true)
             {
                 <tr>
                     <td>

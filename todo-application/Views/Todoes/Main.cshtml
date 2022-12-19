@@ -1,7 +1,7 @@
 ﻿@model todo_application.Models.Todo
 
 @{
-    Layout = null;
+    Layout = "_Layout";
 }
 
 @{
@@ -37,48 +37,44 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand p-0" href="#"><img src="~/images/NS.png" alt="Logo" width="40" /></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-    </nav>
-    <div class="container my-5">
+    <div class="container text-center my-5">
         <div class="row" row-cols-1 row-cols-md-2 row-cols-lg-3 g-5>
-            <div class="col">
+            <div class="col-lg-6 col-md-8 mx-auto">
                 <div class="card">
                     <img src="https://picsum.photos/id/175/800" class="card-img-top" alt="My image">
                     <div class="card-body">
                         <h5 class="card-title">Today tasks</h5>
+                        <p class="card-text">Today you have 2 tasks</p>
                         <a asp-area="" asp-controller="Todoes" asp-action="Today" target="_blank" class="btn btn-primary">Check</a>
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-lg-6 col-md-8 mx-auto">
                 <div class="card">
                     <img src="https://picsum.photos/id/180/800" class="card-img-top" alt="My image">
                     <div class="card-body">
                         <h5 class="card-title">Planned tasks</h5>
+                        <p class="card-text">You have 6 planned tasks</p>
                         <a asp-area ="" asp-controller="Todoes" asp-action="Planned" target="_blank" class="btn btn-primary">Check</a>
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-lg-6 col-md-8 mx-auto">
                 <div class="card">
                     <img src="https://picsum.photos/id/543/800" class="card-img-top" alt="My image">
                     <div class="card-body">
                         <h5 class="card-title">Completed tasks</h5>
+                        <p class="card-text">You have completed 2 tasks</p>
                         <a asp-area ="" asp-controller="Todoes" asp-action="Completed" target="_blank" class="btn btn-primary">Check</a>
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-lg-6 col-md-8 mx-auto">
                 <div class="card">
                     <img src="https://picsum.photos/id/201/800" class="card-img-top" alt="My image">
                     <div class="card-body">
                         <h5 class="card-title">All tasks</h5>
+                        <p class="card-text">All tasks added in application</p>
                         <a asp-area ="" asp-controller="Todoes" asp-action="Index" target="_blank" class="btn btn-primary">Check</a>
                     </div>
                 </div>

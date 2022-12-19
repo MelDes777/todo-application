@@ -10,9 +10,6 @@
     <a asp-action="Create">Create New</a>
 </p>
 
-<button onclick="myFunction">Show/Hide completed todoes</button>
-
-
 <table class="table">
     <thead>
         <tr>
@@ -71,16 +68,4 @@
         }
     </tbody>
 </table>
-
-
-<script>
-    function myFunction() {
-        var x = document.getElementById("myId");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-</script>
 
