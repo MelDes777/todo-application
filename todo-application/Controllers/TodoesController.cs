@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -28,7 +29,17 @@ namespace todo_application.Controllers
         // GET: Todoes/Main
         public IActionResult Main()
         {
-            return View("Main");
+            List<int> categoryTodoes = new List<int>();
+
+            var todayTodoes = _context.Todoes.Where(x => x.DueDate.Date == DateTime.Today.Date).Count();
+            var plannedTodoes = _context.Todoes.Where(x => x.DueDate.Date != DateTime.Today.Date && x.IsCompleted != true).Count();
+            var completedTodoes = _context.Todoes.Where(x => x.IsCompleted == true).Count();
+
+            categoryTodoes.Add(todayTodoes);
+            categoryTodoes.Add(plannedTodoes);
+            categoryTodoes.Add(completedTodoes);
+
+            return View("Main", categoryTodoes);
         }
 
         // GET: Todoes/Details/5

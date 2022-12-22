@@ -30,6 +30,5 @@ namespace todo_application.Models
 
         [Display(Name = "In Progress")]
         public bool IsProgressed { get; set; }
-
     }
 }

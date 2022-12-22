@@ -10,37 +10,36 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Copy">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="Description" class="control-label" ></label>
-                <label asp-for="Description" class="form-control"/>
-                @Html.DisplayFor(model => model.Description)
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" placeholder="Make up something" />
+                <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DateCreated" class="control-label"></label>
-                <label asp-for="DateCreated" class="form-control" />
-                @Html.DisplayFor(model => model.DateCreated)
+                <input asp-for="DateCreated" class="form-control" />
+                <span asp-validation-for="DateCreated" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DueDate" class="control-label"></label>
-                <label asp-for="DueDate" class="form-control" />
-                @Html.DisplayFor(model => model.DueDate)
+                <input asp-for="DueDate" class="form-control" />
+                <span asp-validation-for="DueDate" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    @Html.DisplayFor(model => model.IsCompleted) @Html.DisplayNameFor(model => model.IsCompleted)
+                    <input class="form-check-input" asp-for="IsCompleted" /> @Html.DisplayNameFor(model => model.IsCompleted)
                 </label>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    @Html.DisplayFor(model => model.IsStarted) @Html.DisplayNameFor(model => model.IsStarted)
+                    <input class="form-check-input" asp-for="IsStarted" /> @Html.DisplayNameFor(model => model.IsStarted)
                 </label>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    @Html.DisplayFor(model => model.IsProgressed) @Html.DisplayNameFor(model => model.IsProgressed)
+                    <input class="form-check-input" asp-for="IsProgressed" /> @Html.DisplayNameFor(model => model.IsProgressed)
                 </label>
             </div>
             <div class="form-group">
